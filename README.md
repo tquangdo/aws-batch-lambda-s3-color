@@ -38,7 +38,7 @@ docker push xxx.amazonaws.com/dtq-ecr-del:job1<2>
 ### 5/ run
 + upload `color.txt`
 + will output:
-1. `mycolor` in the same bucket `dtq-bucket`
+1. `mycolor` in the same bucket `dtq-bucket` (💣💣)
 2. temp files `line1~line7`
 ```shell
 # aws s3 ls s3://dtq-bucket/
