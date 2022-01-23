@@ -5,6 +5,8 @@
 ![Forks](https://img.shields.io/github/forks/tquangdo/aws-batch-lambda-s3-color?color=f05340)
 [![Report an issue](https://img.shields.io/badge/Support-Issues-green)](https://github.com/tquangdo/aws-batch-lambda-s3-color/issues/new)
 
+![overview](screenshots/overview.png)
+
 ## reference
 [viblo](https://viblo.asia/p/tim-hieu-aws-batch-YWOZrpkR5Q0#_3-demo-2)
 
@@ -12,7 +14,7 @@
 ### 1/ create bucket: `dtq-bucket`
 
 ### 2/ push into ECR
-+ ECS: create repo `dtq-ecr-del`
++ ECR: create repo `dtq-ecr-del`
 ```shell
 job1<2># docker build -t job1<2> .
 docker tag job1<2> xxx.amazonaws.com/dtq-ecr-del:job1<2>
@@ -26,10 +28,11 @@ docker push xxx.amazonaws.com/dtq-ecr-del:job1<2>
 #### 3-2) Create job queue `dtq-queue`
 ![batch3_2](screenshots/batch3_2.png)
 #### 3-3) Create 2 job definitions `dtq-def-job1<2>`
-![batch3_3](screenshots/batch3_3.png)
 + note1: `ecsTaskExecutionRole` must follow with AWS reference
 ![iamrole](screenshots/iamrole.png)
 + note2: `Assign public IP`=ENABLED
++ note3: container image=`xxx.amazonaws.com/dtq-ecr-del:job1<2>`
+![batch3_3](screenshots/batch3_3.png)
 
 ### 4/ create lambda `dtq-lambda-event-del`
 + trigger with bucket `dtq-bucket` in ### 1/
